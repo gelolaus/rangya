@@ -1,12 +1,21 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-body {
-	
-	background: white;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	margin: 0px;
-	overflow: hidden;
-	
+figcaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+.blur {
+  filter: blur(5px);
+  filter: brightness(50%);
 }
