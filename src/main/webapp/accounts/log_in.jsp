@@ -50,6 +50,7 @@
     
     <form method="POST" action="log_in_process.jsp" class="box" id="createbox">
 	
+	<div class="field">
 		<label class="label">Email Address</label>
 		<div class="control">
 		<input class="input" type="email" placeholder="Email Address" id="email_address"name="email_address" required>

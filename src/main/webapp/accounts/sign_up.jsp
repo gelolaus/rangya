@@ -77,7 +77,7 @@
 		</div>
 	</div>
 	
-		<div class="field">
+	<div class="field">
 		<label class="label">Password</label>
 		<div class="control">
 		<input class="input" type="password" placeholder="Password" id="password" name="password" required>
