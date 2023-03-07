@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-  boolean isDashboard = false; // replace with your own boolean variable
+  boolean isDashboard = true; // replace with your own boolean variable
   if (isDashboard) {
     response.sendRedirect("landings/dashboard.jsp");
   } else {
