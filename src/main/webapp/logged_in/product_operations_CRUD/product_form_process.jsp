@@ -48,7 +48,7 @@
 
 	<div class="field is-grouped">
 		<div class="control">
-		<a href="../product_form.jsp"><button class="button is-success">Add again</button></a>
+		<a href="../product_operation/product_form.jsp"><button class="button is-success">Add again</button></a>
 		</div>
 		<div class="control">
 		<a href="../dashboard.jsp"><button class="button is-info">View records</button></a>
