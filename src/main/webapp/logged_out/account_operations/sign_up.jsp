@@ -104,7 +104,7 @@
 	
 		<div class="control">
 		<label class="label">Repeat Password</label>
-		<input class="input" type="password" placeholder="Password" id="password" name="password" required>
+		<input class="input" type="password" placeholder="Password" id="confirm-password" name="confirm-password" required>
 		</div>
 		
 	</div>
@@ -122,6 +122,25 @@
 
 
 </form>
+
+<script>
+
+const password = document.getElementById('password');
+const confirm-password = document.getElementById('confirm-password');
+
+function validatePassword() {
+  if (password.value != confirmPassword.value) {
+    confirm-password.setCustomValidity("Passwords do not match!");
+  } else {
+    confirm-password.setCustomValidity('');
+  }
+}
+
+password.addEventListener('change', validatePassword);
+confirmPassword.addEventListener('keyup', validatePassword);
+
+
+</script>
     
 </body>
 
