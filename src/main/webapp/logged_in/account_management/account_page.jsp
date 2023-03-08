@@ -73,6 +73,8 @@
     </nav>
     
         <form method="POST" action="../account_operations_CRUD/sign_up_process.jsp" class="box" id="accounts_box">
+        
+
     
     <p class="title is-3" style="text-align: center;">Sign Up</p>
 
