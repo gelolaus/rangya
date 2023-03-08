@@ -17,7 +17,7 @@ try {
 	int i = ps.executeUpdate();
 	if (i > 0) {
 out.print("Record Updated Successfully");
-response.sendRedirect("index.jsp");
+response.sendRedirect("../../index.jsp");
 
 	} else {
 out.print("There is a problem in updating Record.");

@@ -1,39 +1,45 @@
 <%@ page import="java.sql.*" %>
+<%!String driverName = "com.mysql.jdbc.Driver";%>
 
-<%
-String email_address = request.getParameter("email_address");
-String password = request.getParameter("password");
-
-try {
-  // Establish a connection to the database
-  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db", "root", "Love,@funjai_gr");
-  
-  // Create a prepared statement to query the database
-  PreparedStatement stmt = conn.prepareStatement("SELECT * FROM user_tbl WHERE email_address = ? AND password = ?");
-  stmt.setString(1, email_address);
-  stmt.setString(2, password);
-  
-  // Execute the query and get the result set
-  ResultSet rs = stmt.executeQuery();
-  
-  // Check if the user's login information is valid
-  if (rs.next()) {
-    // If it is, create a session object to store the user's information
-    HttpSession userSession = request.getSession();
-    session.setAttribute("email_address", email_address);
-    
-    // Redirect the user to a page that requires authentication
-    response.sendRedirect("../../logged_in/dashboard.jsp");
-  } else {
-    // If the login information is not valid, display an error message on the login page
-    out.println("<p>Incorrect email or password. Please try again.</p>");
-  }
-  
-  // Clean up resources
-  rs.close();
-  stmt.close();
-  conn.close();
-} catch (SQLException e) {
-  e.printStackTrace();
-}
-%>
+<!-- Changing User from logout -->
+	<%
+	String user_id;
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	Connection connection2 = null;
+	Statement statement2 = null;
+	ResultSet resultSet2 = null;
+	try {
+		connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db", "root", "Love,@funjai_gr");
+		statement2 = connection2.createStatement();
+		String email_address = request.getParameter("email_address");
+		String password = request.getParameter("password");
+		String sql = "SELECT * FROM user_tbl Where email_address = '" + email_address + "' AND password = '" + password + "'";
+		resultSet2 = statement2.executeQuery(sql);
+		while (resultSet2.next()) {
+			user_id = resultSet2.getString("user_id");
+			if (user_id != null) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			Class.forName(driverName);
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db", "root", "Love,@funjai_gr");
+			String sql2 = "Update currentuser_tbl set user_id=?";
+			ps = con.prepareStatement(sql2);
+			ps.setString(1, user_id);
+			int i = ps.executeUpdate();
+		    response.sendRedirect("../../logged_in/dashboard.jsp");
+		} catch (SQLException sql2) {
+			request.setAttribute("error", sql);
+			out.println(sql);
+		}
+			}
+		}
+	} catch (SQLException sql) {
+		request.setAttribute("error", sql);
+		out.println(sql);
+	}
+	%>
