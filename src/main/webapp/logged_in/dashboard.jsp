@@ -78,6 +78,7 @@
 
 		<thead>
 			<tr>
+			<th><abbr title="Product ID">ID</abbr>
 			<th><abbr title="Product Name">Name</abbr></th>
 			<th><abbr title="Product Image">Image</abbr></th>
 			<th><abbr title="Product Description">Description</abbr></th>
@@ -119,12 +120,13 @@
 
 		<tbody>
 			<tr class="active-row">
+			<td><%=resultSet.getString("product_id") %></td>
 			<td><%=resultSet.getString("product_name") %></td>
 			<td><%=resultSet.getString("product_image") %></td>
 			<td><%=resultSet.getString("product_description") %></td>
 			<td>US Size <%=resultSet.getString("product_size") %></td>
 			<td>$<%=resultSet.getString("product_price") %>.00</td>
-			<td><a href="product_operations_CRUD/product_updater_process.jsp?product_id=<%=resultSet.getString("product_id")%>"><button class="button is-success">Update</button></a></td>
+			<td><a href="product_operations/product_update_form.jsp?product_id=<%=resultSet.getString("product_id")%>"><button class="button is-success">Update</button></a></td>
 			<td><a href="product_operations_CRUD/product_deleter_process.jsp?product_id=<%=resultSet.getString("product_id")%>"><button class="button is-danger">Delete</button></a></td>
 			</tr>
 		</tbody>
@@ -150,16 +152,8 @@
 
 	</table>
 	
-		<div class="">
-		
-			<div class="block">
-				<a href="product_operations/product_form.jsp"><button class="button is-success" style="width: 100%;'">Add a new record</button></a>
-			</div>
-			
-		</div>
-		
-	</div>
-    
+
+</div>
 
 </body>
 </html>
