@@ -1,0 +1,48 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+
+body {
+	
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0px;
+	
+}
+
+figcaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#accounts_box {
+	
+	display: block;
+	width: 44%;
+	margin: auto;
+	
+}
+
+#dashboard_box {
+	
+	display: block;
+	width: 80%;
+	margin: auto;
+	
+}
+
+#products_box {
+	
+	display: block;
+	width: 44%;
+	margin: auto;
+	
+}
+
+.blur {
+  filter: blur(5px);
+  filter: brightness(50%);
+}
