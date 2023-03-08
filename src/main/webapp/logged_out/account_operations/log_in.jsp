@@ -34,7 +34,7 @@
     <nav class="navbar" role="navigation" aria-label="main-navigation">
 
         <div class="navbar-brand">
-            <a class="navbar-item" href="../index.jsp">
+            <a class="navbar-item" href="../../index.jsp">
                 <img src="../../src/images/logo/RangyaBlack.png" height="28"> for Sellers
             </a>
 
