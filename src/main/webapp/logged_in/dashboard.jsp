@@ -48,17 +48,51 @@
         
 	        <div class="navbar-end">
 	        
-		        <div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link">
-						Hello, Username!
-					</a>
+	        	<%
+					try {
+						
+						Class.forName("com.mysql.jdbc.Driver");
+						
+					}
+					catch (ClassNotFoundException e) {
+						
+						e.printStackTrace();
+						
+					}
+					Connection connection = null;
+					Statement statement = null;
+					ResultSet resultSet = null;
+					
+					try {
+						
+						connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db","root","Love,@funjai_gr");
+						statement = connection.createStatement();
+						String sql = "SELECT * FROM currentuser";
+						
+						resultSet = statement.executeQuery(sql);
+						
+						while(resultSet.next()) {
+							
+				%>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a class="navbar-link"> Hello, <%out.println(resultSet.getString("email_address")); %> </a>
+									<%
+						}
+					}
+						catch (Exception e) {
+							
+							e.printStackTrace();
+							
+						}
+						
+				%>
 					
 					<div class="navbar-dropdown">
 						<a class="navbar-item">
 							View Account
 						</a>
 						<hr class="navbar-divider">
-						<a class="navbar-item" style="color: red;">
+						<a class="navbar-item" href="log_out_operations_CRUD/log_out_process.jsp"style="color: red;">
 							Log Out
 						</a>
 					
@@ -102,9 +136,9 @@
 		e.printStackTrace();
 		
 	}
-	Connection connection = null;
-	Statement statement = null;
-	ResultSet resultSet = null;
+	connection = null;
+	statement = null;
+	resultSet = null;
 	
 	try {
 		
