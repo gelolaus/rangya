@@ -76,7 +76,13 @@
 				%>
 								<div class="navbar-item has-dropdown is-hoverable">
 									<a class="navbar-link"> Hello, <%out.println(resultSet.getString("email_address")); %> </a>
-									<%
+					
+					<div class="navbar-dropdown">
+						<a class="navbar-item" href="account_management/account_page.jsp?user_id=<%=resultSet.getString("user_id")%>">
+							View Account
+						</a>
+						
+				<%
 						}
 					}
 						catch (Exception e) {
@@ -86,11 +92,6 @@
 						}
 						
 				%>
-					
-					<div class="navbar-dropdown">
-						<a class="navbar-item">
-							View Account
-						</a>
 						<hr class="navbar-divider">
 						<a class="navbar-item" href="log_out_operations_CRUD/log_out_process.jsp"style="color: red;">
 							Log Out
@@ -136,13 +137,11 @@
 		e.printStackTrace();
 		
 	}
-	connection = null;
 	statement = null;
 	resultSet = null;
 	
 	try {
 		
-		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db","root","Love,@funjai_gr");
 		statement = connection.createStatement();
 		String sql = "SELECT * FROM product_tbl";
 		
