@@ -18,50 +18,104 @@
 
 <link rel="stylesheet" type="text/css" href="../../src/css/styles.css" />
 
+<style>
+
+	html {
+	
+		background-image: url(../../src/images/index/pexels-aman-jakhar-1124466.jpg)		
+	
+	}
+
+</style>
+
 </head>
 
 <body>
 
-	<nav class="navbar" role="navigation" aria-label="main-navigation">
+    <nav class="navbar" role="navigation" aria-label="main-navigation">
 
-		<div class="navbar-brand">
-			<a class="navbar-item" href="../index.jsp"> <img
-				src="../../src/images/logo/RangyaBlack.png" height="28"> for
-				Sellers
-			</a>
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../index.jsp">
+                <img src="../../src/images/logo/RangyaBlack.png" height="28"> for Sellers
+            </a>
+            
 
-
-		</div>
-
-		<div class="navbar-menu">
-
-			<div class="navbar-start">
-
-				<a class="navbar-item" href=""> <strong>Dashboard</strong>
-				</a> <a class="navbar-item" href="product_operations/product_form.jsp">
-					Create </a>
-
-			</div>
-
-			<div class="navbar-end">
-
-				<div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link"> Hello, Username! </a>
-
+        </div>
+        
+        <div class="navbar-menu">
+        
+        	<div class="navbar-start">
+        	
+        		<a class="navbar-item" href="../dashboard.jsp">
+        			Dashboard
+        		</a>
+        		
+		        <a class="navbar-item" href="../product_operations/product_form.jsp">
+        			Create
+        		</a>
+        	
+        	</div>
+        
+	        <div class="navbar-end">
+	        
+	        	<%
+					try {
+						
+						Class.forName("com.mysql.jdbc.Driver");
+						
+					}
+					catch (ClassNotFoundException e) {
+						
+						e.printStackTrace();
+						
+					}
+					Connection connection = null;
+					Statement statement = null;
+					ResultSet resultSet = null;
+					
+					try {
+						
+						connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db","root","Love,@funjai_gr");
+						statement = connection.createStatement();
+						String sql = "SELECT * FROM currentuser";
+						
+						resultSet = statement.executeQuery(sql);
+						
+						while(resultSet.next()) {
+							
+				%>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a class="navbar-link"> Hello, <%out.println(resultSet.getString("email_address")); %> </a>
+					
 					<div class="navbar-dropdown">
-						<a class="navbar-item"> View Account </a>
+						<a class="navbar-item" href="account_page.jsp?user_id=<%=resultSet.getString("user_id")%>">
+							View Account
+						</a>
+						
+				<%
+						}
+					}
+						catch (Exception e) {
+							
+							e.printStackTrace();
+							
+						}
+						
+				%>
 						<hr class="navbar-divider">
-						<a class="navbar-item" style="color: red;"> Log Out </a>
-
+						<a class="navbar-item" href="log_out_operations_CRUD/log_out_process.jsp"style="color: red;">
+							Log Out
+						</a>
+					
 					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</nav>
+					
+		        </div>
+	        
+	        </div>
+        
+        </div>
+        
+    </nav>
 	<!-- Form -->
 	<%
 	String user_id = request.getParameter("user_id");
@@ -75,9 +129,9 @@
 		e.printStackTrace();
 
 	}
-	Connection connection = null;
-	Statement statement = null;
-	ResultSet resultSet = null;
+	connection = null;
+	statement = null;
+	resultSet = null;
 	try {
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db", "root", "Love,@funjai_gr");
 
@@ -91,7 +145,7 @@
 
 
 
-		<p class="title is-3" style="text-align: center;">Sign Up</p>
+		<p class="title is-3" style="text-align: center;">Edit Account</p>
 
 		<div class="field">
 			<div class="control">
