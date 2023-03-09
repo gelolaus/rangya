@@ -37,7 +37,7 @@
     <nav class="navbar" role="navigation" aria-label="main-navigation">
 
         <div class="navbar-brand">
-            <a class="navbar-item" href="../index.jsp">
+            <a class="navbar-item" href="../../index.jsp">
                 <img src="../../src/images/logo/RangyaBlack.png" height="28"> for Sellers
             </a>
             
@@ -122,6 +122,9 @@
     <!-- Form -->
     
     <form method="POST" action="../product_operations_CRUD/product_form_process.jsp" class="box" id="products_box">
+    
+    		<p class="title is-3" style="text-align: center;">Create Product</p>
+    
 
 		<div class="field">
 			<label class="label">Product Name</label>

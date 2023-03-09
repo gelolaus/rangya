@@ -38,7 +38,7 @@
     <nav class="navbar" role="navigation" aria-label="main-navigation">
 
         <div class="navbar-brand">
-            <a class="navbar-item" href="../index.jsp">
+            <a class="navbar-item" href="../../index.jsp">
                 <img src="../../src/images/logo/RangyaBlack.png" height="28"> for Sellers
             </a>
             
@@ -184,10 +184,7 @@
 			<label class="label">Product Description</label>
 			<div class="control">
 				<textarea class="textarea" placeholder="e.g. Hello world"
-					id="product_description" name="product_description" required> <%
- out.println(resultSet.getString("product_description"));
- %>
-				</textarea>
+					id="product_description" name="product_description" required><%out.println(resultSet.getString("product_description"));%></textarea>
 			</div>
 		</div>
 
