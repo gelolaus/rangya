@@ -14,9 +14,48 @@
 	<title>Creator</title>
 
 	<link rel="stylesheet" href="../../src/css/styles.css">
+	
+	<style>
+
+	html {
+	
+		background-image: url(../../src/images/index/pexels-kaique-rocha-48262.jpg)		
+	
+	}
+
+</style>
+
 </head>
 
 <body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar" role="navigation" aria-label="main-navigation">
+
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../../index.jsp">
+                <img src="../../src/images/logo/RangyaBlack.png" height="28"> for Sellers
+            </a>
+
+            
+
+        </div>
+        
+        <div class="navbar-end">
+        	<div class="navbar-item">
+        		<div class="buttons">
+        			<a class="button is-light" href="../../index.jsp">
+        				Home
+        			</a>
+        			<a class="button is-light" href="../account_operations/log_in.jsp">
+        				Log In
+        			</a>
+        		</div>
+        	</div>
+        </div>
+
+    </nav>
 
 <div class="box" id="accounts_box">
 
@@ -51,6 +90,7 @@
 		<div class="control">
 		<a href="../account_operations/log_in.jsp"><button class="button is-light">Log in</button></a>
 		</div>
+		
 	</div>
 	
 </div>

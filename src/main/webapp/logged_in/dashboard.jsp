@@ -18,6 +18,16 @@
 
 <link rel = "stylesheet" type = "text/css" href = "../src/css/styles.css" />
 
+<style>
+
+	html {
+	
+		background-image: url(../src/images/index/pexels-aman-jakhar-1124466.jpg)		
+	
+	}
+
+</style>
+
 </head>
 
 <body>

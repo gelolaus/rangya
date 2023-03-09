@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
     
 <!DOCTYPE html>
 
@@ -13,6 +17,16 @@
 <title>Rangya | Log In</title>
 
 <link rel = "stylesheet" type = "text/css" href = "../../src/css/styles.css" />
+
+<style>
+
+	html {
+	
+		background-image: url(../../src/images/index/pexels-aman-jakhar-1124466.jpg)		
+	
+	}
+
+</style>
 
 </head>
 
@@ -46,17 +60,52 @@
         
 	        <div class="navbar-end">
 	        
-		        <div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link">
-						Hello, Username!
-					</a>
+	        	<%
+					try {
+						
+						Class.forName("com.mysql.jdbc.Driver");
+						
+					}
+					catch (ClassNotFoundException e) {
+						
+						e.printStackTrace();
+						
+					}
+					Connection connection = null;
+					Statement statement = null;
+					ResultSet resultSet = null;
+					
+					try {
+						
+						connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rangya_db","root","Love,@funjai_gr");
+						statement = connection.createStatement();
+						String sql = "SELECT * FROM currentuser";
+						
+						resultSet = statement.executeQuery(sql);
+						
+						while(resultSet.next()) {
+							
+				%>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a class="navbar-link"> Hello, <%out.println(resultSet.getString("email_address")); %> </a>
 					
 					<div class="navbar-dropdown">
-						<a class="navbar-item">
+						<a class="navbar-item" href="account_management/account_page.jsp?user_id=<%=resultSet.getString("user_id")%>">
 							View Account
 						</a>
+						
+				<%
+						}
+					}
+						catch (Exception e) {
+							
+							e.printStackTrace();
+							
+						}
+						
+				%>
 						<hr class="navbar-divider">
-						<a class="navbar-item" style="color: red;">
+						<a class="navbar-item" href="../log_out_operations_CRUD/log_out_process.jsp"style="color: red;">
 							Log Out
 						</a>
 					

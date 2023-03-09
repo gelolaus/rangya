@@ -118,28 +118,37 @@
 	</div>
 
 
-	<p> Already have an account? <a href="log_in.jsp">Log in!</a> </p>
+	<p>Already have an account? <a href="log_in.jsp">Log in!</a></p>
 
 
 </form>
 
 <script>
-
-const password = document.getElementById('password');
-const confirm-password = document.getElementById('confirm-password');
+var password = document.getElementById("password");
+var confirm_password = document.getElementById("confirm-password");
+var form = document.getElementById("accounts_box");
+var submitButton = form.querySelector('button[type="submit"]');
 
 function validatePassword() {
-  if (password.value != confirmPassword.value) {
-    confirm-password.setCustomValidity("Passwords do not match!");
-  } else {
-    confirm-password.setCustomValidity('');
-  }
+    if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords do not match");
+        submitButton.disabled = true;
+    } else {
+        confirm_password.setCustomValidity("");
+        submitButton.disabled = false;
+    }
 }
 
-password.addEventListener('change', validatePassword);
-confirmPassword.addEventListener('keyup', validatePassword);
+function onSubmit(event) {
+    if (password.value != confirm_password.value) {
+        event.preventDefault();
+        submitButton.disabled = true;
+    }
+}
 
-
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+form.addEventListener("submit", onSubmit);
 </script>
     
 </body>

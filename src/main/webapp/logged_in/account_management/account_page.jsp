@@ -212,7 +212,7 @@
 			</div>
 			
 						<div class="control">
-				<a href="account_deleter_process?user_id=<%=resultSet.getString("user_id")%>"><button class="button is-danger is-light" type="button">Delete</button></a>
+				<a href="account_deleter_process.jsp?user_id=<%=resultSet.getString("user_id")%>"><button class="button is-danger is-light" type="button">Delete</button></a>
 			</div>
 
 		</div>

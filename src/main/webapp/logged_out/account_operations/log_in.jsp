@@ -85,7 +85,7 @@
 		
 	</div>
 	
-	<p> Don't have an account yet? <a href="sign_up.jsp">Sign up!</a> </p>
+	<p>Don't have an account yet? <a href="sign_up.jsp">Sign up!</a></p>
 	
 
 </form>
